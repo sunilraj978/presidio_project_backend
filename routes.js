@@ -4,7 +4,6 @@ const Buyer = require('./models/buyerSchema');
 const Product = require('./models/productSchema');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const middleware = require('./middleware');
 var nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const secretKey ='akdaknafjeofhefijeofjnweofj9r840823348n2r2';
@@ -66,7 +65,7 @@ router.post("/loginbuyer" , async(req,res)=>{
     const doMatch = await bcrypt.compare(password , buyer.password);
     // console.log(doMatch);
     if(doMatch){
-        const token =  jwt.sign({_id : buyer._id} , secretKey , {expiresIn:'1d'});
+        const token =  "TOKEN";
         console.log(token);
         res.send([buyer._id , token]);
     }
@@ -78,7 +77,7 @@ router.post("/loginbuyer" , async(req,res)=>{
 
 
 //------------------------------------------------------------------ Create product by sellers.........................
-router.post('/createproduct',middleware, async(req,res)=>{
+router.post('/createproduct', async(req,res)=>{
    
     try{
         // console.log("create product API fetched");
