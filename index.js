@@ -16,7 +16,9 @@ app.use(express.json({limit: '50mb'}));
 
 const mongoose = require('mongoose');
 
-
+app.get("/" , (req,res)=>{
+    res.send("Welcome to the API");
+})
 app.use(router);
 
 
