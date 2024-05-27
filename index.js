@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({limit: '50mb'}));
 app.use(cors({
-    origin : [""],
+    origin : ["https://presidio-project-frontend-git-main-sunil-rajs-projects-065befb7.vercel.app"],
     methods:["POST","GET","PUT","DELETE"],
     credentials:true
 }));
